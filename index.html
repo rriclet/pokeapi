@@ -48,9 +48,10 @@
                 <input type="text" class="form-control" ng-model="inputPokemonInfo" placeholder="Filter the pokemon list !">
             </div>
         </div>
+		
         <div class="col-md-12">
             <div class="form-group">
-                <select class="form-control" ng-model="choice" ng-options="p as p.name for p in list | filter:inputPokemonInfo">
+                <select class="form-control" ng-model="currentPokemon" ng-options="p as (p.name | titlecase) for p in pokemonList | filter:inputPokemonInfo">
                     <option>{{p.name}}</option>
                 </select>
             </div>
