@@ -45,13 +45,13 @@
 
         <div class="col-md-12">
             <div class="form-group">
-                <input type="text" class="form-control" ng-model="searchPokemon" placeholder="Filter the list !">
+                <input type="text" class="form-control" ng-model="inputPokemonInfo" placeholder="Filter the pokemon list !">
             </div>
         </div>
         <div class="col-md-12">
             <div class="form-group">
-                <select class="form-control" ng-model="choice">
-                    <option ng-repeat="p in list | filter:searchPokemon">{{p.name}}</option>
+                <select class="form-control" ng-model="choice" ng-options="p as p.name for p in list | filter:inputPokemonInfo">
+                    <option>{{p.name}}</option>
                 </select>
             </div>
         </div>
@@ -61,6 +61,7 @@
                 <button type="button" class="btn btn-primary btn-block" ng-click="go()">Go !</button>
             </div>
         </div>
+		
     </div>
 </div> <!-- /container -->
 </div>
@@ -69,7 +70,8 @@
 
 <!-- Load the AngularJS library -->
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
-
+<script src="https://code.angularjs.org/1.4.9/angular-resource.js"></script>
+<script src="js/vendor/jquery-1.11.2.min.js"></script>
 <script src="js/vendor/bootstrap.min.js"></script>
 <script src="js/pokedex.js"></script>
 
