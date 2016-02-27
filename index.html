@@ -10,6 +10,13 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- Load the AngularJS library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+    <script src="https://code.angularjs.org/1.4.9/angular-resource.js"></script>
+    <script src="js/vendor/jquery-1.11.2.min.js"></script>
+    <script src="js/vendor/bootstrap.min.js"></script>
+    <script src="js/pokedex.js"></script>
+    
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <style>
         body {
@@ -45,14 +52,14 @@
 
         <div class="col-md-12">
             <div class="form-group">
-                <input type="text" class="form-control" ng-model="inputPokemonInfo" placeholder="Filter the pokemon list !">
+                <input type="text" class="form-control" ng-model="inputPokemonInfo" placeholder="Filter the list by name, id...">
             </div>
         </div>
 		
         <div class="col-md-12">
             <div class="form-group">
-                <select class="form-control" ng-model="currentPokemon" ng-options="p as (p.name | titlecase) for p in pokemonList | filter:inputPokemonInfo">
-                    <option>{{p.name}}</option>
+                <select class="form-control" ng-model="currentPokemon" ng-options="p as (p.name | titleCase) for p in pokemonList | filter:inputPokemonInfo">
+                    <option ng-cloak>{{p.name}}</option>
                 </select>
             </div>
         </div>
@@ -63,18 +70,8 @@
             </div>
         </div>
 		
-    </div>
-</div> <!-- /container -->
+    </div> <!-- /container --> 
 </div>
-
-
-
-<!-- Load the AngularJS library -->
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
-<script src="https://code.angularjs.org/1.4.9/angular-resource.js"></script>
-<script src="js/vendor/jquery-1.11.2.min.js"></script>
-<script src="js/vendor/bootstrap.min.js"></script>
-<script src="js/pokedex.js"></script>
 
 </body>
 </html>
