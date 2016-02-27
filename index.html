@@ -2,7 +2,10 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="">
+<!--<![endif]-->
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -13,17 +16,12 @@
     <!-- Load the AngularJS library -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
     <script src="https://code.angularjs.org/1.4.9/angular-resource.js"></script>
+
     <script src="js/vendor/jquery-1.11.2.min.js"></script>
     <script src="js/vendor/bootstrap.min.js"></script>
     <script src="js/pokedex.js"></script>
-    
+
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <style>
-        body {
-            padding-top: 50px;
-            padding-bottom: 20px;
-        }
-    </style>
     <link rel="stylesheet" href="css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="css/main.css">
 
@@ -31,47 +29,63 @@
 </head>
 
 <body ng-app="app">
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Find your favorite Pokemons !</a>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Find your favorite Pokemons !</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+            </div>
+            <!--/.navbar-collapse -->
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
-        </div><!--/.navbar-collapse -->
+    </nav>
+
+    <div class="container">
+
+        <div class="col-md-6" ng-controller="searchPokemon">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <input type="text" class="form-control" ng-model="searchInput" placeholder="Filter the list by name, id...">
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <select class="form-control" ng-model="chosedPokemon" ng-options="p as (p.name | titleCase) for p in pokemonList | filter:searchInput">
+                            <option ng-cloak>{{p.name}}</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <button type="button" class="btn btn-primary btn-block" ng-click="go()">Go !</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        
+        <div class="col-md-6" ng-controller="displayPokemon">
+            <img src="" alt="">
+            <p class="pokemonId">{{pokemon.id}}</p>
+            <p class="pokemonName">{{pokemon.name}}</p>
+            <p class="pokemonHeight">{{pokemon.height}}</p>
+            <p class="pokemonWeight">{{pokemon.weight}}</p>
+        </div>
+
     </div>
-</nav>
-
-<div class="jumbotron" ng-controller="ctrl">
-    <div class="container">
-
-        <div class="col-md-12">
-            <div class="form-group">
-                <input type="text" class="form-control" ng-model="inputPokemonInfo" placeholder="Filter the list by name, id...">
-            </div>
-        </div>
-		
-        <div class="col-md-12">
-            <div class="form-group">
-                <select class="form-control" ng-model="currentPokemon" ng-options="p as (p.name | titleCase) for p in pokemonList | filter:inputPokemonInfo">
-                    <option ng-cloak>{{p.name}}</option>
-                </select>
-            </div>
-        </div>
-
-        <div class="col-md-12">
-            <div class="form-group">
-                <button type="button" class="btn btn-primary btn-block" ng-click="go()">Go !</button>
-            </div>
-        </div>
-		
-    </div> <!-- /container --> 
-</div>
+    <!-- /container -->
 
 </body>
+
 </html>
