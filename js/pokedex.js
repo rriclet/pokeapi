@@ -1,5 +1,12 @@
 var app = angular.module('app', ['ngResource'])
 
+// useful for HTML templating
+app.directive('pokedex', function () {
+    return {
+        templateUrl: 'pokedex.html'
+    }
+})
+
 // a filter to upperCase words
 app.filter('titleCase', function () {
     return function (input) {
@@ -10,39 +17,45 @@ app.filter('titleCase', function () {
     }
 })
 
-app.factory('getPokemonById', ['$http', function ($http) {
+app.factory('getPokemon', ['$http', function ($http) {
     var search = {};
-    search.get = function (url) {
-        var promise = $http.get(url).then(function (response) {
-            return response.data
-        })
-        return promise
+    search.getInfo = function (url) {
+        return $http.get(url)
+    }
+    search.getSprite = function (id) {
+        id = id + 1
+        return $http.get('http://pokeapi.co/api/v1/sprite/' + id + '/')
     }
     return search;
 }])
 
-app.factory('getPokemons', ['$resource', function ($resource) {
+app.factory('getPokemonList', ['$resource', function ($resource) {
     return $resource('http://pokeapi.co/api/v2/pokemon/')
 }])
 
-app.controller('searchPokemon', ['$scope', 'pokemonService', 'getPokemonById', 'getPokemons', function ($scope, pokemonService, getPokemonById, getPokemons) {
+app.controller('searchPokemon', ['$scope', 'pokemonService', 'getPokemon', 'getPokemonList', function ($scope, pokemonService, getPokemon, getPokemonList) {
 
     // input to filter the pokemon list
     $scope.searchInput
-    // the chosed pokemon in the list (name & url)
+        // the chosed pokemon in the list (name & url)
     $scope.chosedPokemon
-    // the pokemon list
+        // the pokemon list
     $scope.pokemonList
 
-    getPokemons.query().$promise.then(function (value) {
+    getPokemonList.query().$promise.then(function (value) {
         $scope.pokemonList = value
     })
 
+    // when the button is clicked
     $scope.go = function () {
-        getPokemonById.get($scope.chosedPokemon.url).then(function (response) {
-            pokemonService.setPokemon(response)
+        getPokemon.getInfo($scope.chosedPokemon.url).then(function (pokemon) {
+            getPokemon.getSprite(pokemon.data.id).then(function(sprite) {
+                pokemonService.setPokemon(pokemon.data)
+                pokemonService.setPokemonSprite(sprite.data.image)
+            })
         })
     }
+
 }])
 
 app.controller('displayPokemon', ['$scope', 'pokemonService', function ($scope, pokemonService) {
@@ -67,10 +80,14 @@ app.controller('displayPokemon', ['$scope', 'pokemonService', function ($scope, 
 }])
 
 app.service('pokemonService', [function () {
-    var pokemon;
+    var pokemon
 
     this.setPokemon = function (pokemon) {
         this.pokemon = pokemon
+    }
+
+    this.setPokemonSprite = function (sprite) {
+        this.pokemon.sprite = 'http://pokeapi.co' + sprite
     }
 
 }])
