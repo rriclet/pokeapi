@@ -1,9 +1,9 @@
-<img src="{{pokemon.sprite}}" alt="">
-<p class="pokemonId">No. {{pokemon.id}}</p>
-<p class="pokemonName">Name : {{(pokemon.name | titleCase)}}</p>
-<p class="pokemonHeight">Height :
+<img id="pokemonSprite" src="{{pokemon.sprite}}" alt="">
+<p id="pokemonId">No. {{pokemon.id}}</p>
+<p id="pokemonName">Name : {{pokemon.name}}</p>
+<p id="pokemonHeight">Height :
     <span ng-show="pokemon.height != null">{{pokemon.height / 10}} m</span>
 </p>
-<p class="pokemonWeight">Weight : 
+<p id="pokemonWeight">Weight : 
     <span ng-show="pokemon.weight != null">{{pokemon.weight / 10}} kg</span>
 </p>

@@ -3,8 +3,17 @@
    ========================================================================== */
 
 body {
-            padding-top: 70px;
-            padding-bottom: 20px;
-        }
+    padding-top: 20px;
+    padding-bottom: 20px;
+	background: url('../img/pokeballBg.png');
+	background-size: cover;
+}
 
+#pokemonList, #pokemonName
+ {
+	text-transform: capitalize;
+}
 
+#pokemonSprite {
+	width: 100px;
+}
