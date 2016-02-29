@@ -14,8 +14,11 @@ app.controller('searchPokemon', ['$scope', 'pokemonService', 'pokemonFactory', '
     $scope.go = function () {
         pokemonFactory.getInfo($scope.chosedPokemon.url).then(function (pokemon) {
                 pokemonService.setPokemon(pokemon.data)
-                //pokemonService.setPokemonSprite('http://img.pokemondb.net/artwork/' + pokemon.data.name + '.jpg')
-				pokemonService.setPokemonSprite('http://img.pokemondb.net/sprites/black-white/anim/normal/' + pokemon.data.name + '.gif')
+				if (pokemon.data.id <= 649)
+					pokemonService.setPokemonSprite('http://img.pokemondb.net/sprites/black-white/anim/normal/' + pokemon.data.name + '.gif')
+				else
+					pokemonService.setPokemonSprite('http://img.pokemondb.net/sprites/x-y/normal/' + pokemon.data.name + '.png')
+				
 		})
     }
 

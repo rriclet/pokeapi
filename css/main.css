@@ -2,18 +2,43 @@
    Author's custom styles
    ========================================================================== */
 
-body {
-    padding-top: 20px;
-    padding-bottom: 20px;
-	background: url('../img/pokeballBg.png');
+body, html {
+	height: 100%;
+}
+   
+body {	
+	background: url('../img/pokeballBg.png') no-repeat center;
 	background-size: cover;
+	background-attachment: fixed;
 }
 
-#pokemonList, #pokemonName
- {
+.container-fluid {
+	height: 100%;
+}
+
+#searchPokemon {
+	padding-top: 10px;
+}
+
+#whiteRow {
+	width: 100%;
+	position:fixed;
+	bottom: 0;
+}
+
+#pokemonInfo {
+	text-align: center;
+}
+
+#pokemonList, #pokemonName {
 	text-transform: capitalize;
 }
 
-#pokemonSprite {
-	width: 100px;
+.pokemonSpriteCol {
+	text-align: center;
+}
+
+.pokemonSprite {
+	display: inline-block;  
+	width: 300px;
 }

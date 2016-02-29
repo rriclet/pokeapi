@@ -38,39 +38,66 @@
 
 <body ng-app="app">
 
-    <div class="container">
-
-        <div class="col-md-6" ng-controller="searchPokemon">
-
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <input type="text" class="form-control" ng-model="searchInput" placeholder="Filter the list by name, id...">
-                    </div>
-                </div>
-
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <select class="form-control" id="pokemonList"
-						ng-model="chosedPokemon" ng-options="p as p.name for p in pokemonList | filter:searchInput">
-                            <option ng-cloak>{{p.name}}</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <button type="button" class="btn btn-primary btn-block" ng-click="go()">Go !</button>
-                    </div>
-                </div>
+    <div class="container-fluid" ng-controller="displayPokemon">
+		<!-- Red Part -->
+		<div id="redRow" class="row">
+		
+			<!-- Upper Left GIF -->
+			<div class="col-md-4 pokemonSpriteCol">
+				<img class="pokemonSprite" src="{{pokemon.sprite}}" alt="">
             </div>
+			
+			<!-- Search Form -->
+			<div id="searchPokemon" class="col-md-4" ng-controller="searchPokemon">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<input type="text" class="form-control" ng-model="searchInput" placeholder="Filter the list by name, id...">
+						</div>
+					</div>
 
-        </div>
-        
-        <div class="col-md-6" ng-controller="displayPokemon">
-            <div pokedex></div>
-        </div>
+					<div class="col-md-12">
+						<div class="form-group">
+							<select class="form-control" id="pokemonList"
+							ng-model="chosedPokemon" ng-options="p as p.name for p in pokemonList | filter:searchInput">
+								<option ng-cloak>{{p.name}}</option>
+							</select>
+						</div>
+					</div>
 
+					<div class="col-md-12">
+						<div class="form-group">
+							<button type="button" class="btn btn-primary btn-block" ng-click="go()">Go !</button>
+						</div>
+					</div>
+				</div>
+            </div>
+			
+			<!-- Upper Right GIF -->
+			<div class="col-md-4 pokemonSpriteCol">
+				<img class="pokemonSprite" src="{{pokemon.sprite}}" alt="">
+            </div>
+		</div>
+		
+		<!-- White part -->
+		<div id="whiteRow" class="row">
+		
+			<!-- Bottom Left GIF -->
+			<div class="col-md-4 pokemonSpriteCol" >
+				<img class="pokemonSprite" src="{{pokemon.sprite}}" alt="">
+			</div>
+			
+			<!-- Pokemon Info -->
+			<div id="pokemonInfo" class="col-md-4" >
+				<div pokedex></div>
+			</div>
+			
+			<!-- Bottom Right GIF -->
+			<div class="col-md-4 pokemonSpriteCol">
+				<img class="pokemonSprite" src="{{pokemon.sprite}}" alt="">
+			</div>
+			
+		</div>
     </div>
     <!-- /container -->
 
