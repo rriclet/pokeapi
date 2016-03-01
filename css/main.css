@@ -17,28 +17,44 @@ body {
 }
 
 #searchPokemon {
+	display: table-cell;
 	padding-top: 10px;
+	height: 100%;
+	float: none;
+	vertical-align: middle;
 }
 
 #redRow {
+	display: table;
 	height: 50%;
+	width: 100%;
 }
 
 #whiteRow {
+	display: table;
 	height: 50%;
+	width: 100%;
 }
 
 #pokemonInfo {
+	display: table-cell;
 	text-align: center;
     height: 100%;
+	float: none;
+	vertical-align: middle;
 }
 
 .pokemonSpriteCol {
+	display: table-cell;
 	height: 100%;
+	float: none;
+	vertical-align: middle;
 }
 
 .pokemonSprite {
-	display: block; margin: 0 auto;
+	display: block; 
+	margin: 0 auto;
+	width: 300px;
 }
 
 #pokemonList, #pokemonName {
