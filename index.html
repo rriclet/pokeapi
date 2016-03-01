@@ -40,15 +40,15 @@
 
     <div class="container-fluid" ng-controller="displayPokemon">
 		<!-- Red Part -->
-		<div id="redRow" class="row">
+		<div class="row pokeRow">
 		
 			<!-- Upper Left GIF -->
-			<div class="col-md-4 pokemonSpriteCol">
-				<img class="pokemonSprite" src="{{pokemon.sprite}}" alt="">
+			<div class="col-md-4 hidden-sm hidden-xs colCell">
+				<img class="pokemonSprite img-responsive" src="{{pokemon.sprite}}" alt="">
             </div>
 			
 			<!-- Search Form -->
-			<div id="searchPokemon" class="col-md-4" ng-controller="searchPokemon">
+			<div id="searchPokemon" class="col-md-4 col-xs-12 colCell" ng-controller="searchPokemon">
 				<div class="row">
 					<div class="col-md-12">
 						<div class="form-group">
@@ -74,27 +74,27 @@
             </div>
 			
 			<!-- Upper Right GIF -->
-			<div class="col-md-4 pokemonSpriteCol">
-				<img class="pokemonSprite" src="{{pokemon.sprite}}" alt="">
+			<div class="col-md-4 hidden-sm hidden-xs colCell">
+				<img class="pokemonSprite img-responsive" src="{{pokemon.sprite}}" alt="">
             </div>
 		</div>
 		
 		<!-- White part -->
-		<div id="whiteRow" class="row">
+		<div class="row pokeRow">
 		
 			<!-- Bottom Left GIF -->
-			<div class="col-md-4 pokemonSpriteCol" >
-				<img class="pokemonSprite" src="{{pokemon.sprite}}" alt="">
+			<div class="col-md-4 colCell" >
+				<img class="pokemonSprite img-responsive" src="{{pokemon.sprite}}" alt="">
 			</div>
 			
 			<!-- Pokemon Info -->
-			<div id="pokemonInfo" class="col-md-4" >
+			<div id="pokemonInfo" class="col-md-4 colCell" >
 				<div pokedex></div>
 			</div>
 			
 			<!-- Bottom Right GIF -->
-			<div class="col-md-4 pokemonSpriteCol">
-				<img class="pokemonSprite" src="{{pokemon.sprite}}" alt="">
+			<div class="col-md-4 hidden-sm hidden-xs colCell">
+				<img class="pokemonSprite img-responsive" src="{{pokemon.sprite}}" alt="">
 			</div>
 			
 		</div>

@@ -10,51 +10,38 @@ body {
 	background: url('../img/pokeballBg.png') no-repeat center;
 	background-size: cover;
 	background-attachment: fixed;
+	overflow: hidden;
 }
 
 .container-fluid {
 	height: 100%;
 }
 
-#searchPokemon {
+.pokeRow {
+	display: table;
+	height: 50%;
+	width: 100%;
+}
+
+.colCell {
 	display: table-cell;
-	padding-top: 10px;
 	height: 100%;
 	float: none;
 	vertical-align: middle;
 }
 
-#redRow {
-	display: table;
-	height: 50%;
-	width: 100%;
-}
-
-#whiteRow {
-	display: table;
-	height: 50%;
-	width: 100%;
+#searchPokemon {
+	padding-top: 10px;
 }
 
 #pokemonInfo {
-	display: table-cell;
 	text-align: center;
-    height: 100%;
-	float: none;
-	vertical-align: middle;
-}
-
-.pokemonSpriteCol {
-	display: table-cell;
-	height: 100%;
-	float: none;
-	vertical-align: middle;
 }
 
 .pokemonSprite {
 	display: block; 
 	margin: 0 auto;
-	width: 300px;
+	width: 400px;
 }
 
 #pokemonList, #pokemonName {
