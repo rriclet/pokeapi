@@ -18,10 +18,8 @@ app.controller('searchPokemon', ['$scope', 'pokemonService', 'pokemonFactory', '
 					pokemonService.setPokemonSprite('http://img.pokemondb.net/sprites/black-white/anim/normal/' + pokemon.data.name + '.gif')
 				else
 					pokemonService.setPokemonSprite('http://img.pokemondb.net/sprites/x-y/normal/' + pokemon.data.name + '.png')
-				
 		})
     }
-
 }])
 
 app.controller('displayPokemon', ['$scope', 'pokemonService', function ($scope, pokemonService) {
