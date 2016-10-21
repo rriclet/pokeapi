@@ -13,10 +13,6 @@ body {
 	overflow: hidden;
 }
 
-.container-fluid {
-	height: 100%;
-}
-
 .pokeRow {
 	display: table;
 	height: 50%;
@@ -36,12 +32,6 @@ body {
 
 #pokemonInfo {
 	text-align: center;
-}
-
-.pokemonSprite {
-	display: block; 
-	margin: 0 auto;
-	width: 400px;
 }
 
 #pokemonList, #pokemonName {

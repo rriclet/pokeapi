@@ -6,6 +6,6 @@ app.factory('pokemonFactory', ['$http', function ($http) {
     return search;
 }])
 
-app.factory('pokemonListFactory', ['$resource', function ($resource) {
-    return $resource('http://pokeapi.co/api/v2/pokemon/')
+app.factory('pokemonListFactory', ['$http', function ($http) {
+    return $http.get('http://pokeapi.co/api/v2/pokemon/?limit=811')
 }])

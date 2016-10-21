@@ -43,15 +43,13 @@
     <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
 </head>
 
-<body ng-app="app">
-
-    <div class="container-fluid" ng-controller="displayPokemon">
-		<!-- Red Part -->
+<body ng-app="app" ng-controller="displayPokemon">
+	<!-- Red Part -->
 		<div class="row pokeRow">
 		
 			<!-- Upper Left GIF -->
-			<div class="col-md-4 hidden-sm hidden-xs colCell">
-				<img class="pokemonSprite img-responsive" src="{{pokemon.sprite}}" alt="">
+			<div class="col-md-4 hidden-sm hidden-xs colCell"
+				 style="background: url({{pokemon.sprite}}) no-repeat center; background-size: contain;">
             </div>
 			
 			<!-- Search Form -->
@@ -76,8 +74,8 @@
             </div>
 			
 			<!-- Upper Right GIF -->
-			<div class="col-md-4 hidden-sm hidden-xs colCell">
-				<img class="pokemonSprite img-responsive" src="{{pokemon.sprite}}" alt="">
+			<div class="col-md-4 hidden-sm hidden-xs colCell"
+				 style="background: url({{pokemon.sprite}}) no-repeat center; background-size: contain;">
             </div>
 		</div>
 		
@@ -85,8 +83,8 @@
 		<div class="row pokeRow">
 		
 			<!-- Bottom Left GIF -->
-			<div class="col-md-4 colCell" >
-				<img class="pokemonSprite img-responsive" src="{{pokemon.sprite}}" alt="">
+			<div class="col-md-4 hidden-sm hidden-xs colCell"
+				 style="background: url({{pokemon.sprite}}) no-repeat center; background-size: contain;">
 			</div>
 			
 			<!-- Pokemon Info -->
@@ -95,12 +93,11 @@
 			</div>
 			
 			<!-- Bottom Right GIF -->
-			<div class="col-md-4 hidden-sm hidden-xs colCell">
-				<img class="pokemonSprite img-responsive" src="{{pokemon.sprite}}" alt="">
+			<div class="col-md-4 hidden-sm hidden-xs colCell"
+				 style="background: url({{pokemon.sprite}}) no-repeat center; background-size: contain;">
 			</div>
 			
 		</div>
-    </div>
     <!-- /container -->
 
 </body>

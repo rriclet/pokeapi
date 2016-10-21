@@ -1,5 +1,8 @@
 app.service('pokemonService', [function () {
-    var pokemon
+    var pokemon = {}
+    pokemon.sprite = null
+    pokemon.sprite = null
+
     this.setPokemon = function (pokemon) {
         this.pokemon = pokemon
     }
